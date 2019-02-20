@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=chromium-browser --password-store=basic %U --incognito --kiosk file:///home/user/index.html
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[de_DE]=Chromium Koisk
+Name=Chromium Koisk
+Comment[de_DE]=Koisk Browser
+Comment=Koisk Browser
