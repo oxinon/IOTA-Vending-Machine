@@ -29,7 +29,7 @@ Für die Automaten bedienung wird ein 7" Waveshare Touchscreen, mit einer auflö
 ##<a name="Elektronikteile"></a>Beschreibung der Hardware Teile
 
 
-<p><center><img src="https://oxinon.com/wp-content/uploads/2019/02/BridgeBlockDiag.png" alt="Cover" width="500"></center></p>
+<p><center><img src="https://oxinon.com/wp-content/uploads/2019/02/BridgeBlockDiag-1.png" alt="Cover" width="500"></center></p>
 <hr>
 <br>
 <p><center><img src="https://oxinon.com/wp-content/uploads/2019/02/fritzing.png" alt="Cover" width="500"></center></p>
