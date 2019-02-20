@@ -6,7 +6,7 @@ V0.01-BETA
 * * *
 
 + [Beschreibung](#german)
-+ [Beschreibung der Hardware](#hardware)
++ [Beschreibung der verwendeten Hardware](#hardware)
 + [Das Arduino-Yun](#arduinoyun)
 + [Aufbau der Elektronik](#elektronik)
 ***
@@ -22,7 +22,7 @@ Entwicklung und Bereitstellung eines Warenautomaten zum Verkauf verschiedener Wa
 Basistechnologien: iota.js, mam.client.js, Node.js, React, C++, Linux (Ubuntu 18.04 LTS), Arduino
 
 
-<a name="hardware"></a><h2>Beschreibung der Hardware</h2>
+<a name="hardware"></a><h2>Beschreibung der verwendeten Hardware</h2>
 Als Node kommt ein MSI 98I6 Pico ITX zum Einsatz, dieser hat einen Intel Pentium N4200 SoC QC bis zu 2,5Ghz und 4GB RAM.
 <br>
 Ubuntu Linux ist auf der 64GB mPCI SSD Installiert, mit einem Chromium Brwoser der im Kiosk-Modus automatisch gestartet wird (chromium-browser.desktop)
@@ -39,7 +39,7 @@ Die folgende Grafik zeigt eine Übersicht der verwendeten Hardware:
 <hr>
 
 <br>
-<a name="arduinoyun"></a><h2>Beschreibung der Elektronik</h2>
+<a name="arduinoyun"></a><h2>Das Arduino-Yun</h2>
 Das Arduino-Yun ist besonders, da es nicht nur einen Microcontroler (ATmega32u4) sondern auch ein Linux auf dem Atheros AR9331 SoC besitzt (Linino basirend auf Open-WRT). Mit hilfe von der bridge library können die beiden Seiten mit einander Kommunizieren. 
 <br>
 Mit dem USB Prog. Port lässt sich nicht nur die Software aufspielen und Aktualisieren, die zur ansteuerung der Elektronik dient, sonder auch zum Debugen in einer Serielle Konsole.
