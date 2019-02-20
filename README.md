@@ -6,12 +6,14 @@ V0.01-BETA
 * * *
 
 + [Beschreibung](#german)
-+ [Beschreibung der Hardware](#PCHardware)
-+ [Elektronik Teile](#Elektronikteile)
++ [Beschreibung der Hardware](#hardware)
++ [Das Arduino-Yun](#arduinoyun)
++ [Aufbau der Elektronik](#elektronik)
 ***
 + [English description](#english) coming soon
-+ [Hardware description](#PCHarwareparts) coming soon
-+ [Elektronik parts](#Elektronikpatrs) coming soon
++ [Hardware description](#harwareE) coming soon
++ [The Arduino-Yun](#arduinoyunE)
++ [Build up Elektronik](#elektronikE) coming soon
 
 * * *
 <a name="german"></a><h2>Beschreibung</h2>
@@ -20,7 +22,7 @@ Entwicklung und Bereitstellung eines Warenautomaten zum Verkauf verschiedener Wa
 Basistechnologien: iota.js, mam.client.js, Node.js, React, C++, Linux (Ubuntu 18.04 LTS), Arduino
 
 
-<a name="PCHardware"></a><h2>Beschreibung der Hardware</h2>
+<a name="hardware"></a><h2>Beschreibung der Hardware</h2>
 Als Node kommt ein MSI 98I6 Pico ITX zum Einsatz, dieser hat einen Intel Pentium N4200 SoC QC bis zu 2,5Ghz und 4GB RAM.
 <br>
 Ubuntu Linux ist auf der 64GB mPCI SSD Installiert, mit einem Chromium Brwoser der im Kiosk-Modus automatisch gestartet wird (chromium-browser.desktop)
@@ -32,19 +34,21 @@ Für die nötige Internet Verbindung ist ein Sierra MC7710 mPCI 4G Modem verbaut
 Der wichtigste part ist das Arduino-Yun Board, dieses stellt die Verbindung mit hilfe einer Ethernet Schnitstelle her. Die Kommunikation zwischen der WEB-App und der Digitalen/Analogen Ein- und Ausgänge ist IP Basierend und arbeitet mit cURL HTTP request.
 <br>
 Die folgende Grafik zeigt eine Übersicht der verwendeten Hardware:
-
+<br>
 <p><center><img src="https://oxinon.com/wp-content/uploads/2019/02/KomponentAll5.png" alt="Cover" width="500"></center></p>
 <hr>
+
 <br>
-<a name="Elektronikteile"></a><h2>Beschreibung der Elektronik</h2>
+<a name="arduinoyun"></a><h2>Beschreibung der Elektronik</h2>
 Das Arduino-Yun ist besonders, da es nicht nur einen Microcontroler (ATmega32u4) sondern auch ein Linux auf dem Atheros AR9331 SoC besitzt (Linino basirend auf Open-WRT). Mit hilfe von der bridge library können die beiden Seiten mit einander Kommunizieren. 
 <br>
-Mit dem USB Prog. Port lässt sich nicht nur die Software aufspielen und Aktualisieren, die zur ansteuerung der Elektronik dient, sonder auch zum Debugen benutzen in einer Serielle Konsole.
+Mit dem USB Prog. Port lässt sich nicht nur die Software aufspielen und Aktualisieren, die zur ansteuerung der Elektronik dient, sonder auch zum Debugen in einer Serielle Konsole.
 <br>
-
 <p><center><img src="https://oxinon.com/wp-content/uploads/2019/02/BridgeBlockDiag-2.png" alt="Cover" width="500"></center></p>
 <hr>
+
 <br>
+<a name="elektronik"></a><h2>Aufbau der Elektronik</h2>
 <p><center><img src="https://oxinon.com/wp-content/uploads/2019/02/fritzing.png" alt="Cover" width="500"></center></p>
 <hr>
 <br>
