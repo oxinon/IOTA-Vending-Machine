@@ -18,14 +18,16 @@ IOTA-Vending-Machine, pay your Product with IOTA and send Machine data to the Ta
 als Node kommt ein MSI 98I6 Pico ITX zum Einsatz, dieser hat einen Intel Pentium N4200 SoC QC bis zu 2,5Ghz und 4GB RAM.
 
 
+<p><center><img src="https://oxinon.com/wp-content/uploads/2019/02/KomponentAll5.png" alt="Cover" width="500"></center></p>
+<hr>
+<br>
 ##<a name="Elektronikteile"></a>Beschreibung der Hardware
 
 
-
-<p><center><img src="https://oxinon.com/wp-content/uploads/2019/02/KomponentAll5.png" alt="Cover" width="500"></center></p>
-***
+<p><center><img src="https://oxinon.com/wp-content/uploads/2019/02/BridgeBlockDiag.png" alt="Cover" width="500"></center></p>
+<hr>
 <br>
 <p><center><img src="https://oxinon.com/wp-content/uploads/2019/02/fritzing.png" alt="Cover" width="500"></center></p>
-***
+<hr>
 <br>
 
