@@ -1,0 +1,7 @@
+Display = https://www.waveshare.com/7inch-hdmi-lcd-h.htm
+MSI 98I6 = https://ipc.msi.com/product/pages/ipc/MS-98I6.html
+Arduino-Yun = https://store.arduino.cc/arduino-yun
+Arduino Prototype = https://store.arduino.cc/proto-shield-rev3-uno-size
+Sierra Wireless MC7710 = https://source.sierrawireless.com/devices/mc-series/mc7710/
+KingSpec 64GB Half Size mSATA MLC SSD = http://www.kingspec.com/products_detail/productId=86.html
+
