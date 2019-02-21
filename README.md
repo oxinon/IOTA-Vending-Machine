@@ -48,5 +48,6 @@ Der USB-Port wird genutzt um die Software zur Ansteuerung der Elektronik zu inst
 <p><center><img src="https://oxinon.com/wp-content/uploads/2019/02/fritzing.png" alt="Cover" width="500"></center></p>
 (Quelle: fritzing.org)
 <hr>
+
 <br>
 
