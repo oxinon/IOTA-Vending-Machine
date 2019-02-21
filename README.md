@@ -1,5 +1,5 @@
 
-<p><img src="https://https://oxinon.com/wp-content/uploads/2019/02/IOTA-Vending-Machine-1.png" alt="Cover" width="300"></p>
+<p><img src="https://https://oxinon.com/wp-content/uploads/2019/02/IOTA-Vending-Machine-1.png" alt="Cover" width="400"></p>
 
 Sell your product with IOTA and send the machine data to the Tangle.
 <br>
