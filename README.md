@@ -1,8 +1,7 @@
 
-<p><img src="https://oxinon.com/wp-content/uploads/2019/02/IOTA-Vending-Machine.png" alt="Cover" width="300"></p>
+<img src="https://https://oxinon.com/wp-content/uploads/2019/02/IOTA-Vending-Machine-1.png" alt="Cover" width="300"></p>
 
-
-IOTA Vending Machine, sell your product with IOTA and send the machine data to the Tangle.
+Sell your product with IOTA and send the machine data to the Tangle.
 <br>
 <br>
 V0.01-BETA 
