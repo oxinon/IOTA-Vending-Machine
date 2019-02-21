@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=chromium-browser --password-store=basic %U --incognito --kiosk file:///home/user/index.html
+Exec=chromium-browser --password-store=basic %U --incognito --kiosk file:///var/www/html/index.html
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true
