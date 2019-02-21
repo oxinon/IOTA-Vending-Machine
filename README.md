@@ -38,7 +38,7 @@ Die folgende Grafik zeigt eine Übersicht der verwendeten Hardware:
 <br>
 <a name="arduinoyun"></a><h2>Das Arduino-Yun</h2>
 Die Besonderheit des Arduino-Yun ist, dass dieser nicht nur ein Arduino-Subsystem basierend auf dem Mikrocontroller ATmega32u4 bereitstellt sondern zusätzlich auch ein Linux-Subsystem (LininoOS basierend auf Open-WRT) auf dem Atheros AR9331 SoC besitzt. Eine Bridge-Bibliothek ermöglicht die Kommunikation zwischen dem Linux- und dem Arduino-Subsystem.
-Der USB-Port wird genutzt um die Software zur Ansteuerung der Elektronik zu installieren (siehe Datei `IOTA-Vending-Machine.ino`) und um die Debug-Informationen in einer seriellen Konsole auszugeben.
+Der USB-Port wird genutzt um die Software zur Ansteuerung der Elektronik zu installieren (siehe Datei `IOTA-Vending-Machine.ino` ) und um die Debug-Informationen in einer seriellen Konsole auszugeben.
 <br>
 <p><center><img src="https://oxinon.com/wp-content/uploads/2019/02/BridgeBlockDiag-2.png" alt="Cover" width="500"></center></p>
 (Quelle: arduino.cc)
