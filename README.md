@@ -1,7 +1,6 @@
 # IOTA-Vending-Machine
-IOTA-Vending-Machine
+IOTA Vending Machine, sell your product with IOTA and send the machine data to the Tangle.
 <br>
-...sell your product with IOTA and send the machine data to the Tangle.
 <br>
 V0.01-BETA 
 
@@ -14,7 +13,7 @@ V0.01-BETA
 ***
 + [English description](#english) coming soon
 + [Hardware description](#harwareE) coming soon
-+ [The Arduino-Yun](#arduinoyunE)
++ [The Arduino-Yun](#arduinoyunE) coming soon
 + [Build up Elektronik](#elektronikE) coming soon
 
 * * *
