@@ -21,6 +21,7 @@ V0.01-BETA
 <a name="german"></a><h2>Beschreibung</h2>
 Entwicklung und Bereitstellung eines Warenautomaten zum Verkauf verschiedener Waren und einfachen Bezahlung mit der Kryptowährung IOTA. Schwerpunkte hierbei sind der Aufbau der Hardware, die Entwicklung der Software zur Prozessabbildung der notwendigen Zahlungs-, Konfigurations- und Kontrollfunktionen sowie die Integration der notwendigen Hardwarekomponenten in die Prozessabläufe.
 <br>
+<br>
 Basistechnologien: iota.js, mam.client.js, Node.js, React, C++, Linux (Ubuntu 18.04 LTS), Arduino
 
 
