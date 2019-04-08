@@ -12,7 +12,7 @@
 // D 6 - WS2812 LEDs NeoPixel Stripe
 
 // A 0 - IR sensor empty 1 (true/false) http://192.168.240.1/arduino/analog/0
-// A 1 - IR sensor empty 2 (true/false) http://192.168.240.1/arduino/analog/1
+// A 1 - IR setup button (true/false) http://192.168.240.1/arduino/analog/1
 // A 2 - IR sensor empty 3 (true/false) http://192.168.240.1/arduino/analog/2
 // A 3 - IR sensor empty 4 (true/false) http://192.168.240.1/arduino/analog/3
 // A 4 - IR sensor empty 5 (true/false) http://192.168.240.1/arduino/analog/4
@@ -41,6 +41,11 @@ BridgeServer server;   // Listen to the default port 5555, the Yún webserver,wi
 void setup() {
   // Bridge startup
   pixels.begin();
+  pinMode(A0, INPUT);
+  pinMode(A1, OUTPUT);
+  analogWrite(A1, 0);
+  pinMode(4, OUTPUT);
+  digitalWrite(4, LOW);    
   pinMode(13, OUTPUT);
   digitalWrite(13, LOW);
   pinMode(12, INPUT);
@@ -48,8 +53,8 @@ void setup() {
   Serial.begin(115200);
   digitalWrite(13, HIGH);
   Serial.println("ready"); 
-  myservo.attach(9);         // attaches the servo on pin 9 to the servo object  
-
+  //myservo.attach(3);         // attaches the servo on pin 9 to the servo object  
+  
 
   // Listen for incoming connection only from localhost
   // (no one from the external network could connect)
@@ -69,26 +74,45 @@ void loop() {
     // Close connection and free resources.
     client.stop();
   }
-
+  myservo.detach();
   delay(50); // Poll every 50ms
 
-   for(int i=0;i<NUMPIXELS;i++){                     // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
-    pixels.setPixelColor(i, pixels.Color(0,30,15));  // Moderately bright green/blue color.
-    pixels.show();                                   // This sends the updated pixel color to the hardware.
-    delay(10);                                       // Delay for a period of time (in milliseconds).
-  }
+    // Send analog feedback to client
+    if (analogRead(A0) < 600) {
+     for(int i=0;i<NUMPIXELS;i++){                     // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
+      pixels.setPixelColor(i, pixels.Color(100,0,0));  // Moderately bright green/blue color.
+      pixels.show();                                   // This sends the updated pixel color to the hardware.
+      delay(10);                                       // Delay for a period of time (in milliseconds).
+     }     
+    } 
+     else {
+      for(int i=0;i<NUMPIXELS;i++){                     // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
+       pixels.setPixelColor(i, pixels.Color(0,60,30));  // Moderately bright green/blue color.
+       pixels.show();                                   // This sends the updated pixel color to the hardware.
+       delay(10);                                       // Delay for a period of time (in milliseconds).
+      }
+    }
+
 
   if (digitalRead(12) == HIGH) {
-   Serial.print("Setup button ");
+   Serial.print("Setup button on ");
+   analogWrite(A1, 255);
      Process p;
      p.begin("curl"); 
      p.addParameter("http://192.168.240.2");                    // Add the URL parameter to "curl"
      p.run();                                                   // Run the process and wait for its termination
-   Serial.println("set cURL comand to http://192.168.240.2");   // 
-   delay(500);                                                  // Delay for a period of time (in milliseconds). 
- }
-   
+   Serial.println("set cURL comand to http://192.168.240.2");
+      for(int i=0;i<NUMPIXELS;i++){                     // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
+       pixels.setPixelColor(i, pixels.Color(0,0,100));  // Moderately bright green/blue color.
+       pixels.show();                                   // This sends the updated pixel color to the hardware.
+       delay(10);                                       // Delay for a period of time (in milliseconds).
+     }  
+   delay(10000);                                                  // Delay for a period of time (in milliseconds). 
+   analogWrite(A1, 0);
+   Serial.print("Setup button off ");
+  }   
 }
+
 
 void process(BridgeClient client) {
   // read the command
@@ -130,15 +154,19 @@ void digitalCommand(BridgeClient client) {
   Serial.print(F(" is "));
   Serial.println(value);
 
-  for (pos = 0; pos <= 100; pos += 1) {   // goes from 0 degrees to 90 degrees, in steps of 1 degree
-    myservo.write(pos);                   // tell servo to go to position in variable 'pos'
-    delay(5);                             // waits 15ms for the servo to reach the position
-  }
+
 
   for(int i=0;i<NUMPIXELS;i++) {                    // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
     pixels.setPixelColor(i, pixels.Color(0,100,0)); // Moderately bright green color.
     pixels.show();                                  // This sends the updated pixel color to the hardware.
     delay(0);                                       // Delay for a period of time (in milliseconds).
+  }
+
+  myservo.attach(3);
+    for (pos = 200; pos >= 0; pos -= 1)
+   {   // goes from 0 degrees to 90 degrees, in steps of 1 degree
+    myservo.write(pos);                   // tell servo to go to position in variable 'pos'
+    delay(5);                             // waits 15ms for the servo to reach the position
   }
 
   if (digitalRead(11) == HIGH){        // Motor runtime to need output product
@@ -158,7 +186,7 @@ void digitalCommand(BridgeClient client) {
 
   if (digitalRead(5) == HIGH){ 
     Serial.println("set Motor on");
-    delay(2000);                       // Motor runtime to need output product
+    delay(200);                       // Motor runtime to need output product
   }
 
   if (digitalRead(3) == HIGH){ 
@@ -166,38 +194,39 @@ void digitalCommand(BridgeClient client) {
     delay(200);                       // Motor runtime to need output product
   }
 
-  for (pos = 100; pos >= 0; pos -= 1) {   // goes from 90 degrees to 0 degrees
+  for (pos = 0; pos <= 200; pos += 1) {   // goes from 90 degrees to 0 degrees
     myservo.write(pos);                   // tell servo to go to position in variable 'pos'
     delay(5);                             // waits 15ms for the servo to reach the position
+    myservo.detach();
   }
 
   if (digitalRead(11) == HIGH){ 
-    digitalWrite(11, LOW);             // Motor set if of
+    digitalWrite(11, LOW);             // Motor set if off
     Serial.println("set Motor off");  
   }
 
   if (digitalRead(10) == HIGH){ 
-    digitalWrite(10, LOW);             // Motor set if of
+    digitalWrite(10, LOW);             // Motor set if off
     Serial.println("set Motor off");  
   }
 
   if (digitalRead(9) == HIGH){ 
-    digitalWrite(9, LOW);              // Motor set if of
+    digitalWrite(9, LOW);              // Motor set if off
     Serial.println("set Motor off");  
   }
 
   if (digitalRead(5) == HIGH){ 
-    digitalWrite(5, LOW);              // Motor set if of
+    digitalWrite(5, LOW);              // Motor set if off
     Serial.println("set Motor off");  
   }
 
   if (digitalRead(3) == HIGH){ 
-    digitalWrite(3, LOW);            // Motor set if of
+    digitalWrite(3, LOW);              // Motor set if off
     Serial.println("set Motor off");
   }
 
   
-  client.println("success");         // Product is out message Client
+  client.println("success");           // Product is out message Client
   Serial.println("success");           // Product is out message debug
   
   // Update datastore key with the current pin value
@@ -240,13 +269,14 @@ void analogCommand(BridgeClient client) {
     // Read analog pin
     value = analogRead(pin);
 
-    // Send sensor feedback to client
+    // Send analog feedback to client
     if (value > 600) {
       client.print("true");
-      Serial.println("sensor true");
-    } else {
+      Serial.println("true");     
+    } 
+    else {
       client.print("false");
-      Serial.println("sensor false");
+      Serial.println("false");
     }
 
     // Update datastore key with the current pin value
