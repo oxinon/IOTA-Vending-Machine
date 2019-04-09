@@ -30,6 +30,9 @@
 #include <Servo.h>              // Servo Motor
 #include <Process.h>            // Process is need for cURL command if setup button pressed
 
+const int setupbutton = 12; 
+int buttonState = 0;
+
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);  // create Neopixel object to control ws2812 
 
 Servo myservo;         // create servo object to control a servo
@@ -48,7 +51,7 @@ void setup() {
   digitalWrite(4, LOW);    
   pinMode(13, OUTPUT);
   digitalWrite(13, LOW);
-  pinMode(12, INPUT);
+  pinMode(setupbutton, INPUT);
   Bridge.begin();
   Serial.begin(115200);
   digitalWrite(13, HIGH);
@@ -77,7 +80,6 @@ void loop() {
   myservo.detach();
   delay(50); // Poll every 50ms
 
-    // Send analog feedback to client
     if (analogRead(A0) < 600) {
      for(int i=0;i<NUMPIXELS;i++){                     // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
       pixels.setPixelColor(i, pixels.Color(100,0,0));  // Moderately bright green/blue color.
@@ -93,24 +95,15 @@ void loop() {
       }
     }
 
-
-  if (digitalRead(12) == HIGH) {
-   Serial.print("Setup button on ");
-   analogWrite(A1, 255);
-     Process p;
-     p.begin("curl"); 
-     p.addParameter("http://192.168.240.2");                    // Add the URL parameter to "curl"
-     p.run();                                                   // Run the process and wait for its termination
-   Serial.println("set cURL comand to http://192.168.240.2");
-      for(int i=0;i<NUMPIXELS;i++){                     // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
-       pixels.setPixelColor(i, pixels.Color(0,0,100));  // Moderately bright green/blue color.
-       pixels.show();                                   // This sends the updated pixel color to the hardware.
-       delay(10);                                       // Delay for a period of time (in milliseconds).
-     }  
-   delay(10000);                                                  // Delay for a period of time (in milliseconds). 
-   analogWrite(A1, 0);
-   Serial.print("Setup button off ");
-  }   
+     buttonState = digitalRead(setupbutton);            // Setup button state for init setup mode
+      if (buttonState == HIGH) {
+       Serial.println("Setup button on ");
+       analogWrite(A1, 255);
+      } 
+    else {
+       analogWrite(A1, 0);
+       Serial.println("Setup button off ");
+      }
 }
 
 
@@ -254,7 +247,8 @@ void analogCommand(BridgeClient client) {
   if (client.read() == '/') {
     // Read value and execute command
     value = client.parseInt();
-    analogWrite(pin, value);
+    analogWrite(pin, value); 
+
 
     // Send feedback to client
     client.print(F("Pin A"));
