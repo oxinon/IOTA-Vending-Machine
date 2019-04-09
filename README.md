@@ -5,7 +5,7 @@ Sell your product with IOTA and send the machine data to the Tangle.
 <br>
 <br>
 <a href="https://ecosystem.iota.org/projects/iota-vending-machine">https://ecosystem.iota.org/projects/iota-vending-machine</a>
-V0.01-BETA 
+V0.04-BETA 
 
 * * *
 
