@@ -118,6 +118,15 @@ void process(BridgeClient client) {
   // read the command
   String command = client.readStringUntil('/');
 
+
+  client.println("Status: 200");
+  client.println("Access-Control-Allow-Origin: *");   
+  client.println("Access-Control-Allow-Methods: GET");
+  client.println("Content-Type: text/html");
+  client.println("Connection: close");
+  client.println();
+  
+
   // is "digital" command?
   if (command == "digital") {
     digitalCommand(client);
@@ -129,6 +138,8 @@ void process(BridgeClient client) {
   }
   
 }
+
+
 
 void digitalCommand(BridgeClient client) {
   int pin, value;
@@ -155,23 +166,25 @@ void digitalCommand(BridgeClient client) {
   Serial.println(value);
 
 
-
-  for(int i=0;i<NUMPIXELS;i++) {                    // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
-    pixels.setPixelColor(i, pixels.Color(0,100,0)); // Moderately bright green color.
-    pixels.show();                                  // This sends the updated pixel color to the hardware.
-    delay(0);                                       // Delay for a period of time (in milliseconds).
-  }
-
-  myservo.attach(3);
-    for (pos = 200; pos >= 0; pos -= 1)
-   {   // goes from 0 degrees to 90 degrees, in steps of 1 degree
-    myservo.write(pos);                   // tell servo to go to position in variable 'pos'
-    delay(5);                             // waits 15ms for the servo to reach the position
-  }
-
-  if (digitalRead(11) == HIGH){        // Motor runtime to need output product
+  if (digitalRead(11) == HIGH){        // Motor runtime to need output product  
+    for(int i=0;i<NUMPIXELS;i++) {                    // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
+      pixels.setPixelColor(i, pixels.Color(0,100,0)); // Moderately bright green color.
+      pixels.show();                                  // This sends the updated pixel color to the hardware.
+      delay(0);                                       // Delay for a period of time (in milliseconds).
+    }
     Serial.println("set Motor on");
-    delay(200);                       // Motor runtime to need output product
+    delay(2);                       // Motor runtime to need output product
+      myservo.attach(3);
+      for (pos = 200; pos >= 0; pos -= 1)
+     {   // goes from 0 degrees to 90 degrees, in steps of 1 degree
+      myservo.write(pos);                   // tell servo to go to position in variable 'pos'
+      delay(5);                             // waits 15ms for the servo to reach the position
+    }
+      for (pos = 0; pos <= 200; pos += 1) {   // goes from 90 degrees to 0 degrees
+      myservo.write(pos);                   // tell servo to go to position in variable 'pos'
+      delay(5);                             // waits 15ms for the servo to reach the position
+      myservo.detach();
+    }   
   }
 
   if (digitalRead(10) == HIGH){ 
@@ -194,11 +207,7 @@ void digitalCommand(BridgeClient client) {
     delay(200);                       // Motor runtime to need output product
   }
 
-  for (pos = 0; pos <= 200; pos += 1) {   // goes from 90 degrees to 0 degrees
-    myservo.write(pos);                   // tell servo to go to position in variable 'pos'
-    delay(5);                             // waits 15ms for the servo to reach the position
-    myservo.detach();
-  }
+
 
   if (digitalRead(11) == HIGH){ 
     digitalWrite(11, LOW);             // Motor set if off
@@ -225,7 +234,7 @@ void digitalCommand(BridgeClient client) {
     Serial.println("set Motor off");
   }
 
-  
+  //client.println("Access-Control-Allow-Origin: *");
   client.println("success");           // Product is out message Client
   Serial.println("success");           // Product is out message debug
   
