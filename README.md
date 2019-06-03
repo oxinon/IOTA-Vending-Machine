@@ -1,5 +1,8 @@
 
-<p><img src="https://oxinon.com/wp-content/uploads/2019/02/IOTA-Vending-Machine-1.png" alt="Cover" width="400"></p>
+<p><img src="https://github.com/oxinon/IOTA-Vending-Machine/blob/master/picture/IOTA-Vending-Machine.png" alt="Cover" width="400"></p>
+<p><img src="https://github.com/oxinon/IOTA-Vending-Machine/blob/master/picture/vanding-machine3-1000.png" alt="Cover" width="600"></p>
+
+
 
 Sell your product with IOTA and send the machine data to the Tangle.
 <br>
@@ -34,7 +37,7 @@ Der wichtigste Part ist das Arduino-Yun Board, welches über die Ethernet Schnit
 <br>
 Die folgende Grafik zeigt eine Übersicht der verwendeten Hardware:
 <br>
-<p><center><img src="https://oxinon.com/wp-content/uploads/2019/02/KomponentAll5.png" alt="Cover" width="500"></center></p>
+<p><center><img src="https://github.com/oxinon/IOTA-Vending-Machine/blob/master/picture/KomponentAll7.png" alt="Cover" width="500"></center></p>
 (Quelle: siehe partlist.txt)
 <hr>
 
