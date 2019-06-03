@@ -1,6 +1,6 @@
 
 <p><img src="https://github.com/oxinon/IOTA-Vending-Machine/blob/master/picture/IOTA-Vending-Machine.png" alt="Cover" width="400"></p>
-<p><img src="https://github.com/oxinon/IOTA-Vending-Machine/blob/master/picture/vanding-machine3-1000.png" alt="Cover" width="800"></p>
+<p><img src="https://github.com/oxinon/IOTA-Vending-Machine/blob/master/picture/vanding-machine3-1000.png" alt="Cover" width="900"></p>
 
 
 
