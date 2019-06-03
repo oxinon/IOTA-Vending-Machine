@@ -1,6 +1,6 @@
 
 <p><img src="https://github.com/oxinon/IOTA-Vending-Machine/blob/master/picture/IOTA-Vending-Machine.png" alt="Cover" width="400"></p>
-<p><img src="https://github.com/oxinon/IOTA-Vending-Machine/blob/master/picture/vanding-machine3-1000.png" alt="Cover" width="600"></p>
+<p><img src="https://github.com/oxinon/IOTA-Vending-Machine/blob/master/picture/vanding-machine3-1000.png" alt="Cover" width="800"></p>
 
 
 
@@ -48,12 +48,12 @@ Der USB-Port wird genutzt um die Software zur Ansteuerung der Elektronik zu inst
 <br>
 (siehe Datei `IOTA-Vending-Machine.ino`) und um die Debug-Informationen in einer seriellen Konsole auszugeben.
 <br>
-<p><center><img src="https://oxinon.com/wp-content/uploads/2019/02/BridgeBlockDiag-2.png" alt="Cover" width="500"></center></p>
+<p><center><img src="https://github.com/oxinon/IOTA-Vending-Machine/blob/master/picture/arduino-yun.png" alt="Cover" width="500"></center></p>
 (Quelle: arduino.cc)
 <hr>
 <br>
 <a name="elektronik"></a><h2>Aufbau der Elektronik</h2>
-<p><center><img src="https://oxinon.com/wp-content/uploads/2019/02/fritzing.png" alt="Cover" width="500"></center></p>
+<p><center><img src="https://github.com/oxinon/IOTA-Vending-Machine/blob/master/picture/fritzing.png" alt="Cover" width="500"></center></p>
 (Quelle: fritzing.org)
 <hr>
 
